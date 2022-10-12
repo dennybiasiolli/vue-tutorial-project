@@ -7,6 +7,11 @@ export default {
       count: 0
     }
   },
+  computed: {
+    isEven() {
+      return this.count % 2 === 0
+    },
+  },
 
   // Methods are functions that mutate state and trigger updates.
   // They can be bound as event listeners in templates.
@@ -28,4 +33,5 @@ export default {
 <template>
   {{ count }}
   <button @click="increment(1)">+1</button>
+  Is even: {{ isEven }}
 </template>
