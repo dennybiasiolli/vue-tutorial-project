@@ -26,5 +26,6 @@ export default {
 </script>
 
 <template>
-  <button @click="increment">Count is: {{ count }}</button>
+  {{ count }}
+  <button @click="increment">+1</button>
 </template>
