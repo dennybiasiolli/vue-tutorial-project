@@ -11,8 +11,8 @@ export default {
   // Methods are functions that mutate state and trigger updates.
   // They can be bound as event listeners in templates.
   methods: {
-    increment() {
-      this.count++
+    increment(num) {
+      this.count += num
     }
   },
 
@@ -27,5 +27,5 @@ export default {
 
 <template>
   {{ count }}
-  <button @click="increment">+1</button>
+  <button @click="increment(1)">+1</button>
 </template>

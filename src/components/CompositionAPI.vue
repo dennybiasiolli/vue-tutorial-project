@@ -5,8 +5,8 @@ import { ref, onMounted } from 'vue'
 const count = ref(0)
 
 // functions that mutate state and trigger updates
-function increment() {
-  count.value++
+function increment(num) {
+  count.value += num
 }
 
 // lifecycle hooks
@@ -17,5 +17,5 @@ onMounted(() => {
 
 <template>
   {{ count }}
-  <button @click="increment">+1</button>
+  <button @click="increment(1)">+1</button>
 </template>
