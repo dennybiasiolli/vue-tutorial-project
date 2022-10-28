@@ -9,9 +9,14 @@ const props = defineProps({
     required: true,
   }
 })
+const emit = defineEmits(['change'])
 </script>
 
 <template>
-  <input type="checkbox" v-model="completed" />
+  <input
+    type="checkbox"
+    :checked="completed"
+    @change="emit('change', $event.target.checked)"
+  />
   {{ text }}
 </template>

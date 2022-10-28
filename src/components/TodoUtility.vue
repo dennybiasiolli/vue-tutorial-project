@@ -15,6 +15,11 @@ onMounted(() => {
     { id: 5, text: 'Todo item 5', completed: true },
   ];
 })
+
+function handleSwitchTodo({ id, completed }) {
+  const item = items.value.find(item => item.id === id)
+  item.completed = completed;
+}
 </script>
 
 <template>
@@ -23,11 +28,13 @@ onMounted(() => {
   <TodoList
     title="To-do list"
     :items="todoItems"
+    @switch-completed-todo="handleSwitchTodo"
   />
 
   <TodoList
     title="Completed list"
     :items="completedItems"
+    @switch-completed-todo="handleSwitchTodo($event)"
   />
 </template>
 
