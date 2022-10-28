@@ -26,7 +26,7 @@ onMounted(() => {
       :key="item.id"
       :class="{ 'item-completed': item.completed }"
     >
-      {{ index + 1 }}. {{ item.text }}
+      {{ index + 1 }}. <input type="checkbox" v-model="item.completed" /> {{ item.text }}
     </li>
   </ul>
 
@@ -37,13 +37,13 @@ onMounted(() => {
       :key="item.id"
       :class="{ 'item-completed': item.completed }"
     >
-      {{ index + 1 }}. {{ item.text }}
+      {{ index + 1 }}. <input type="checkbox" v-model="item.completed" /> {{ item.text }}
     </li>
   </ul>
 </template>
 
 <style>
 .item-completed {
-  text-decoration: line-through;
+  color: grey;
 }
 </style>
