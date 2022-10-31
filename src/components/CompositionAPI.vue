@@ -17,6 +17,8 @@ onMounted(() => {
 </script>
 
 <template>
+  <h2>Composition API</h2>
+
   {{ count }}
   <button @click="increment(1)">+1</button>
   Is even: {{ isEven }}

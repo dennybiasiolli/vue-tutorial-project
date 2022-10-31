@@ -1,19 +1,16 @@
-<script setup>
-import OptionsAPI from './components/OptionsAPI.vue'
-import CompositionAPI from './components/CompositionAPI.vue'
-import TodoUtility from './components/TodoUtility.vue'
-</script>
-
 <template>
-  CIAO
-  <p>
-    <OptionsAPI />
-  </p>
-  <p>
-    <CompositionAPI />
-  </p>
-  <hr />
-  <p>
-    <TodoUtility />
-  </p>
+  <nav>
+    <ul>
+      <li>
+        <router-link to="/options-api">Options API</router-link>
+      </li>
+      <li>
+        <router-link to="/composition-api">Composition API</router-link>
+      </li>
+      <li>
+        <router-link to="/todo-utility">To-do Utility</router-link>
+      </li>
+    </ul>
+  </nav>
+  <router-view></router-view>
 </template>

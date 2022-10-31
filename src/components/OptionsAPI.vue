@@ -31,6 +31,8 @@ export default {
 </script>
 
 <template>
+  <h2>Options API</h2>
+
   {{ count }}
   <button @click="increment(1)">+1</button>
   Is even: {{ isEven }}
