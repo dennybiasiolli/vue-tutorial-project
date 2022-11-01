@@ -1,29 +1,14 @@
 <script>
+import { mapState, mapActions } from 'pinia'
+import { useStore } from '@/stores/main'
+
 export default {
-  // Properties returned from data() become reactive state
-  // and will be exposed on `this`.
-  data() {
-    return {
-      count: 0
-    }
-  },
   computed: {
-    isEven() {
-      return this.count % 2 === 0
-    },
+    ...mapState(useStore, ['count', 'isEven'])
   },
-
-  // Methods are functions that mutate state and trigger updates.
-  // They can be bound as event listeners in templates.
   methods: {
-    increment(num) {
-      this.count += num
-    }
+    ...mapActions(useStore, ['increment'])
   },
-
-  // Lifecycle hooks are called at different stages
-  // of a component's lifecycle.
-  // This function will be called when the component is mounted.
   mounted() {
     console.log(`The initial count is ${this.count}.`)
   }

@@ -1,14 +1,13 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
+import { onMounted } from 'vue'
+import { useStore } from '@/stores/main'
+
+const store = useStore()
 
 // reactive state
-const count = ref(0)
-const isEven = computed(() => count.value % 2 === 0)
-
-// functions that mutate state and trigger updates
-function increment(num) {
-  count.value += num
-}
+const { count, isEven } = storeToRefs(store)
+const { increment } = store
 
 // lifecycle hooks
 onMounted(() => {
