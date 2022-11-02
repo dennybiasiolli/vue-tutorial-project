@@ -1,10 +1,14 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { storeToRefs } from 'pinia';
+import { useTodoStore } from '@/stores/todo';
+import { onMounted } from 'vue'
 import TodoList from './TodoList.vue'
 
-const items = ref([])
-const todoItems = computed(() => items.value.filter(item => !item.completed))
-const completedItems = computed(() => items.value.filter(item => item.completed))
+const todoStore = useTodoStore()
+
+const { items, todoItems, completedItems } = storeToRefs(todoStore)
+
+const { switchTodo } = todoStore
 
 onMounted(() => {
   items.value = [
@@ -17,8 +21,7 @@ onMounted(() => {
 })
 
 function handleSwitchTodo({ id, completed }) {
-  const item = items.value.find(item => item.id === id)
-  item.completed = completed;
+  switchTodo(id, completed)
 }
 </script>
 
@@ -36,7 +39,7 @@ function handleSwitchTodo({ id, completed }) {
     v-if="completedItems.length > 0"
     title="Completed list"
     :items="completedItems"
-    @switch-completed-todo="handleSwitchTodo($event)"
+    @switch-completed-todo="switchTodo($event.id, $event.completed)"
   />
 </template>
 
