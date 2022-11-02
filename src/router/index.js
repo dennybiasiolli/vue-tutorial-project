@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import CompositionAPI from '@/components/CompositionAPI.vue'
 import HomePage from '@/components/HomePage.vue'
 import OptionsAPI from '@/components/OptionsAPI.vue'
+import NotFound from '@/components/NotFound.vue'
 import TodoUtility from '@/components/TodoUtility.vue'
 
 export const routes = [
@@ -24,6 +25,10 @@ export const routes = [
     path: '/todo-utility',
     name: 'todo-utility',
     component: TodoUtility,
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    component: NotFound,
   },
 ]
 
