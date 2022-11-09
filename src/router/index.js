@@ -5,6 +5,7 @@ import OptionsAPI from '@/components/OptionsAPI.vue'
 import NotFound from '@/components/NotFound.vue'
 import TodoUtility from '@/components/TodoUtility.vue'
 import FormTest from '@/components/FormTest.vue'
+import AxiosTest from '@/components/AxiosTest.vue'
 
 export const routes = [
   {
@@ -31,6 +32,11 @@ export const routes = [
     path: '/form-test',
     name: 'form-test',
     component: FormTest,
+  },
+  {
+    path: '/axios-test',
+    name: 'axios-test',
+    component: AxiosTest,
   },
   {
     path: '/:pathMatch(.*)*',
