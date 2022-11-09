@@ -24,6 +24,9 @@ const todoStore = useTodoStore()
           </span>
         </router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'form-test' }">Form</router-link>
+      </li>
     </ul>
   </nav>
 </template>

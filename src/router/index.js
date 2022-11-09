@@ -4,6 +4,7 @@ import HomePage from '@/components/HomePage.vue'
 import OptionsAPI from '@/components/OptionsAPI.vue'
 import NotFound from '@/components/NotFound.vue'
 import TodoUtility from '@/components/TodoUtility.vue'
+import FormTest from '@/components/FormTest.vue'
 
 export const routes = [
   {
@@ -25,6 +26,11 @@ export const routes = [
     path: '/todo-utility',
     name: 'todo-utility',
     component: TodoUtility,
+  },
+  {
+    path: '/form-test',
+    name: 'form-test',
+    component: FormTest,
   },
   {
     path: '/:pathMatch(.*)*',
