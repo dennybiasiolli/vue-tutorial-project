@@ -17,6 +17,14 @@ export const actions = {
   switchTodo(id, completed) {
     const item = this.items.find(item => item.id === id)
     item.completed = completed;
+  },
+  addTodo(text) {
+    const maxId = Math.max(...this.items.map(item => item.id))
+    this.items.push({
+      id: maxId + 1,
+      text,
+      completed: false,
+    })
   }
 }
 
