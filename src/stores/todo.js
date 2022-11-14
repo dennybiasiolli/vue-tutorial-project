@@ -23,17 +23,16 @@ export const actions = {
       this.items = []
     }
   },
-  switchTodo(id, completed) {
-    const item = this.items.find(item => item.id === id)
-    item.completed = completed;
+  async switchTodo(id, completed) {
+    await axios.patch(`/todos/${id}`, { completed })
+    await this.getTodoItems()
   },
-  addTodo(text) {
-    const maxId = Math.max(...this.items.map(item => item.id))
-    this.items.push({
-      id: maxId + 1,
-      text,
-      completed: false,
-    })
+  async addTodo(text) {
+    try {
+      await axios.post('/todos', { text })
+      await this.getTodoItems()
+    } catch {
+    }
   }
 }
 
