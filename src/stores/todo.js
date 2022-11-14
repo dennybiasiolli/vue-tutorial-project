@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { defineStore } from 'pinia'
 
 export const defaultState = {
@@ -14,6 +15,14 @@ export const getters = {
 }
 
 export const actions = {
+  async getTodoItems() {
+    try {
+      const { data } = await axios.get('/todos')
+      this.items = data
+    } catch {
+      this.items = []
+    }
+  },
   switchTodo(id, completed) {
     const item = this.items.find(item => item.id === id)
     item.completed = completed;

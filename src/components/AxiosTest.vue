@@ -2,8 +2,6 @@
 import axios from 'axios'
 import { onMounted, ref, computed } from 'vue'
 
-axios.defaults.baseURL = 'http:///localhost:3000'
-
 const products = ref([])
 const product = ref(null)
 
