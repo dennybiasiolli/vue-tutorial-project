@@ -37,6 +37,13 @@ export const actions = {
       await this.getTodoItems()
     } catch {
     }
+  },
+  async deleteTodo(id) {
+    try {
+      await axios.delete(`/todos/${id}`)
+      await this.getTodoItems()
+    } catch {
+    }
   }
 }
 
