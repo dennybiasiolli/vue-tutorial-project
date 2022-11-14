@@ -1,3 +1,9 @@
+<script setup>
+import { useTodoStore } from '@/stores/todo';
+
+const todoStore = useTodoStore()
+</script>
+
 <template>
   <nav>
     <ul>
@@ -11,7 +17,12 @@
         <router-link :to="{ name: 'composition-api' }">Composition API</router-link>
       </li>
       <li>
-        <router-link :to="{ name: 'todo-utility' }">To-do Utility</router-link>
+        <router-link :to="{ name: 'todo-utility' }">
+          To-do Utility
+          <span v-if="todoStore.todoItems.length > 0">
+            ({{ todoStore.todoItems.length }})
+          </span>
+        </router-link>
       </li>
     </ul>
   </nav>
