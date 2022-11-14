@@ -11,7 +11,7 @@ const props = defineProps({
     required: true,
   }
 })
-const emit = defineEmits(['switchCompletedTodo'])
+const emit = defineEmits(['switchCompletedTodo', 'changeTodoText'])
 </script>
 
 <template>
@@ -27,6 +27,7 @@ const emit = defineEmits(['switchCompletedTodo'])
         :text="item.text"
         :completed="item.completed"
         @change="emit('switchCompletedTodo', { id: item.id, completed: $event})"
+        @text-changed="emit('changeTodoText', { id: item.id, text: $event})"
       />
     </li>
   </ul>

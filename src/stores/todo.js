@@ -27,6 +27,10 @@ export const actions = {
     await axios.patch(`/todos/${id}`, { completed })
     await this.getTodoItems()
   },
+  async updateTodo(id, text) {
+    await axios.patch(`/todos/${id}`, { text })
+    await this.getTodoItems()
+  },
   async addTodo(text) {
     try {
       await axios.post('/todos', { text })

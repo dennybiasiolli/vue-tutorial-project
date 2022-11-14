@@ -8,9 +8,9 @@ const todoStore = useTodoStore()
 
 const formValid = ref(false)
 const itemText = ref('')
-const { items, todoItems, completedItems } = storeToRefs(todoStore)
+const { todoItems, completedItems } = storeToRefs(todoStore)
 
-const { getTodoItems, switchTodo, addTodo } = todoStore
+const { getTodoItems, switchTodo, updateTodo, addTodo } = todoStore
 
 onMounted(() => {
   getTodoItems()
@@ -51,6 +51,7 @@ watch([itemText], () => {
     title="To-do list"
     :items="todoItems"
     @switch-completed-todo="handleSwitchTodo"
+    @change-todo-text="updateTodo($event.id, $event.text)"
   />
 
   <TodoList
@@ -58,6 +59,7 @@ watch([itemText], () => {
     title="Completed list"
     :items="completedItems"
     @switch-completed-todo="switchTodo($event.id, $event.completed)"
+    @change-todo-text="updateTodo($event.id, $event.text)"
   />
 </template>
 

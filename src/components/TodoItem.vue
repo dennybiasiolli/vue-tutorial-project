@@ -1,4 +1,6 @@
 <script setup>
+import { ref, watch } from 'vue'
+
 const props = defineProps({
   text: {
     type: String,
@@ -9,7 +11,37 @@ const props = defineProps({
     required: true,
   }
 })
-const emit = defineEmits(['change'])
+const emit = defineEmits(['change', 'textChanged'])
+
+const showForm = ref(false)
+const formValid = ref(false)
+const innerText = ref('')
+
+function handleChangeClick() {
+  showForm.value = true
+  innerText.value = props.text
+}
+
+function handleCancelClick() {
+  showForm.value = false
+}
+
+function handleSave() {
+  emit('textChanged', innerText.value)
+  showForm.value = false
+}
+
+function validateForm() {
+  if (!innerText.value.trim()) {
+    formValid.value = false
+    return
+  }
+  formValid.value = true
+}
+
+watch([innerText], () => {
+  validateForm()
+})
 </script>
 
 <template>
@@ -19,4 +51,10 @@ const emit = defineEmits(['change'])
     @change="emit('change', $event.target.checked)"
   />
   {{ text }}
+  <button v-if="!showForm" @click="handleChangeClick">Change</button>
+  <form v-show="showForm">
+    <input type="text" v-model="innerText" />
+    <button type="button" @click="handleCancelClick">Cancel</button>
+    <button type="submit" :disabled="!formValid" @click="handleSave">Save</button>
+  </form>
 </template>
