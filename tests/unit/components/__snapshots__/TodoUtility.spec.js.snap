@@ -1,0 +1,7 @@
+// Vitest Snapshot v1
+
+exports[`renders as expected 1`] = `
+"<h2>Todo Utility</h2>
+<todo-list-stub title=\\"To-do list\\" items=\\"[object Object]\\"></todo-list-stub>
+<todo-list-stub title=\\"Completed list\\" items=\\"[object Object]\\"></todo-list-stub>"
+`;
