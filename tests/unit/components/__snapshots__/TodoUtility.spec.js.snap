@@ -2,6 +2,7 @@
 
 exports[`renders as expected 1`] = `
 "<h2>Todo Utility</h2>
+<form><input type=\\"text\\" placeholder=\\"To-do item\\"><button type=\\"submit\\" disabled=\\"\\">Add</button></form>
 <todo-list-stub title=\\"To-do list\\" items=\\"[object Object]\\"></todo-list-stub>
 <todo-list-stub title=\\"Completed list\\" items=\\"[object Object]\\"></todo-list-stub>"
 `;
