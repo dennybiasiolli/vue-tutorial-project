@@ -1,0 +1,13 @@
+// Vitest Snapshot v1
+
+exports[`should render as expected 1`] = `
+"<h4>my to do list</h4>
+<ul>
+  <li class=\\"\\">1. <todo-item-stub text=\\"my todo 1\\" completed=\\"false\\"></todo-item-stub>
+  </li>
+  <li class=\\"\\">2. <todo-item-stub text=\\"my todo 2\\" completed=\\"false\\"></todo-item-stub>
+  </li>
+  <li class=\\"item-completed\\">3. <todo-item-stub text=\\"my todo 3\\" completed=\\"true\\"></todo-item-stub>
+  </li>
+</ul>"
+`;

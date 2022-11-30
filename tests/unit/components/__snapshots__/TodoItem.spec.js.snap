@@ -1,0 +1,9 @@
+// Vitest Snapshot v1
+
+exports[`should render as expected 1`] = `
+"<input type=\\"checkbox\\">
+ my todo text
+<button>Change</button>
+<button>Delete</button>
+<form style=\\"display: none;\\"><input type=\\"text\\"><button type=\\"button\\">Cancel</button><button type=\\"submit\\" disabled=\\"\\">Save</button></form>"
+`;
